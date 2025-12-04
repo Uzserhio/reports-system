@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Online Reports System</title>
+<style>
+body { font-family: Arial; padding: 20px; }
+.card {
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+</style>
+</head>
+<body>
+
+<h1>📊 Онлайн система отчётов</h1>
+<p>Данные загружаются автоматически из JSON.</p>
+
+<div id="reports">Загрузка...</div>
+
+<script>
+const url = "https://raw.githubusercontent.com/Uzserhio/reports-system/main/data.json";
+
+async function load() {
+  try {
+    const res = await fetch(url + `?t=${Date.now()}`);
+    const data = await res.json();
+    render(data);
+  } catch (e) {
+    document.getElementById("reports").innerHTML = "Ошибка: " + e.message;
+  }
+}
+
+function render(data) {
+  const wrap = document.getElementById("reports");
+  wrap.innerHTML = "";
+  data.forEach(item => {
+    wrap.innerHTML += `
+      <div class="card">
+        <b>${item.title}</b><br>
+        ${item.description}
+      </div>
+    `;
+  });
+}
+
+load();
+</script>
+
+</body>
+</html>
