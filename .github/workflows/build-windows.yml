@@ -30,17 +30,17 @@ jobs:
 
       - name: Prepare built artifacts for Electron
         run: |
-          mkdir -p built_artifacts
-          if exist apps\web\dist (
+          mkdir built_artifacts
+          if (Test-Path "apps\web\dist") {
             xcopy /E /I /Y apps\web\dist built_artifacts\web\
-          )
-          if exist apps\server\dist (
+          }
+          if (Test-Path "apps\server\dist") {
             xcopy /E /I /Y apps\server\dist built_artifacts\server\
-          )
+          }
 
       - name: Copy portable electron folder
         run: |
-          xcopy /E /I /Y portable built_portable
+          xcopy /E /I /Y reports-system-portable built_portable
 
       - name: Copy built artifacts into portable
         run: |
@@ -49,7 +49,7 @@ jobs:
       - name: Install portable deps
         working-directory: ./built_portable
         run: |
-          npm ci
+          npm install
 
       - name: Build portable exe (electron-builder)
         working-directory: ./built_portable
