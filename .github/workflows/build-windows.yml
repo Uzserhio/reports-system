@@ -15,6 +15,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Debug: list repository files
+        run: |
+          echo "Working directory:" && pwd
+          echo "List root:" && ls -Recurse | Select-Object -First 200
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
