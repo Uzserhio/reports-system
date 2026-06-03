@@ -1,0 +1,63 @@
+name: Build Windows portable exe
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install root dependencies
+        run: |
+          npm ci
+
+      - name: Build workspaces (frontend + backend)
+        run: |
+          npm run build --if-present
+
+      - name: Prepare built artifacts for Electron
+        run: |
+          mkdir -p built_artifacts
+          if exist apps\web\dist (
+            xcopy /E /I /Y apps\web\dist built_artifacts\web\
+          )
+          if exist apps\server\dist (
+            xcopy /E /I /Y apps\server\dist built_artifacts\server\
+          )
+
+      - name: Copy portable electron folder
+        run: |
+          xcopy /E /I /Y portable built_portable
+
+      - name: Copy built artifacts into portable
+        run: |
+          xcopy /E /I /Y built_artifacts built_portable\built_artifacts
+
+      - name: Install portable deps
+        working-directory: ./built_portable
+        run: |
+          npm ci
+
+      - name: Build portable exe (electron-builder)
+        working-directory: ./built_portable
+        run: |
+          npx electron-builder --win portable
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports-system-windows-portable
+          path: ./built_portable/dist
