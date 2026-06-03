@@ -17,8 +17,10 @@ jobs:
 
       - name: Debug: list repository files
         run: |
-          echo "Working directory:" && pwd
-          echo "List root:" && ls -Recurse | Select-Object -First 200
+          echo "Working directory:"
+          pwd
+          echo "List root:"
+          Get-ChildItem -Recurse -Force | Select-Object -First 200
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -35,21 +37,21 @@ jobs:
 
       - name: Prepare built artifacts for Electron
         run: |
-          mkdir built_artifacts
-          if (Test-Path "apps\web\dist") {
-            xcopy /E /I /Y apps\web\dist built_artifacts\web\
+          New-Item -ItemType Directory -Force -Path built_artifacts | Out-Null
+          if (Test-Path "apps/web/dist") {
+            Copy-Item -Recurse -Force "apps/web/dist" "built_artifacts/web"
           }
-          if (Test-Path "apps\server\dist") {
-            xcopy /E /I /Y apps\server\dist built_artifacts\server\
+          if (Test-Path "apps/server/dist") {
+            Copy-Item -Recurse -Force "apps/server/dist" "built_artifacts/server"
           }
 
       - name: Copy portable electron folder
         run: |
-          xcopy /E /I /Y reports-system-portable built_portable
+          Copy-Item -Recurse -Force "reports-system-portable" "built_portable"
 
       - name: Copy built artifacts into portable
         run: |
-          xcopy /E /I /Y built_artifacts built_portable\built_artifacts
+          Copy-Item -Recurse -Force "built_artifacts" "built_portable/built_artifacts"
 
       - name: Install portable deps
         working-directory: ./built_portable
