@@ -1,1 +1,1 @@
-{"version": "1.3.2", "zipUrl": "https://github.com/Uzserhio/reports-system/releases/download/panel-v1.3.2/docs-panel.zip", "notes": "Распознавание: ротация моделей при исчерпании квоты (у моделей раздельные лимиты), актуальный список моделей, понятное сообщение о дневном лимите."}
+{"version": "1.4.0", "zipUrl": "https://github.com/Uzserhio/reports-system/releases/download/panel-v1.4.0/docs-panel.zip", "notes": "Запасной контур распознавания: Mistral → OpenRouter → OpenAI, если исчерпаны квоты Gemini."}
