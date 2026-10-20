@@ -1,1 +1,1 @@
-{"version": "1.4.0", "zipUrl": "https://github.com/Uzserhio/reports-system/releases/download/panel-v1.4.0/docs-panel.zip", "notes": "Запасной контур распознавания: Mistral → OpenRouter → OpenAI, если исчерпаны квоты Gemini."}
+{"version": "1.4.1", "crx": "https://github.com/Uzserhio/reports-system/releases/download/v1.4.1/docs-panel.crx"}
