@@ -1,6 +1,6 @@
 {
-  "version": "1.5.0",
-  "crx": "https://github.com/Uzserhio/reports-system/releases/download/v1.5.0/docs-panel.crx",
+  "version": "1.5.1",
+  "crx": "https://github.com/Uzserhio/reports-system/releases/download/v1.5.1/docs-panel.crx",
   "zipUrl": "https://github.com/Uzserhio/reports-system/releases/download/installer/docs-panel.zip",
-  "notes": "v1.5.0 — стабильность SPC: фоновый перехватчик и keepalive теперь ЛЕНИВЫЕ (подключаются только после первого касания панели). На чистой загрузке Amadeus расширение не делает ни одного запроса — Session 3 и Графика должны открываться нормально."
+  "notes": "v1.5.1 — Premium-вкладки: 🔁 мастер переоформления (7 сценариев по книгам: смена даты/апгрейд до и после вылета, шаги с автовводом команд) и 🎫 карточка электронного билета (TWD карточкой: пассажир, купоны, статусы, тариф, таксы; 📜 история TWH таймлайном). Вкладки видны только с активным Premium."
 }
