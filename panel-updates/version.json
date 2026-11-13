@@ -1,6 +1,6 @@
 {
-  "version": "1.5.2",
-  "crx": "https://github.com/Uzserhio/reports-system/releases/download/v1.5.2/docs-panel.crx",
+  "version": "1.5.3",
+  "crx": "https://github.com/Uzserhio/reports-system/releases/download/v1.5.3/docs-panel.crx",
   "zipUrl": "https://github.com/Uzserhio/reports-system/releases/download/installer/docs-panel.zip",
-  "notes": "v1.5.2 — фикс блокировки сессии Amadeus (Session Locked / communication failure): keepalive больше НЕ запускается автоматически ни при загрузке, ни при касании панели. Поддержка сессии включается только вручную кнопкой ⚡ Сессия и только на текущий сеанс. В настройках keepalive по умолчанию выключен."
+  "notes": "v1.5.3 — фикс ошибки ARD 001-0001: чтение экрана кэшируется (1 снимок вместо нескольких innerText), авто-обновление не чаще раза в 6 сек и только в простое браузера, первое чтение через 5 сек после загрузки. Новая настройка «🛡 Режим совместимости ARD»: панель без автослежения и без перехватчика. Панель теперь добавляется в body, а не в html."
 }
