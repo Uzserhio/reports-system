@@ -1,6 +1,6 @@
 {
-  "version": "1.5.4",
-  "crx": "https://github.com/Uzserhio/reports-system/releases/download/v1.5.4/docs-panel.crx",
+  "version": "1.5.5",
+  "crx": "https://github.com/Uzserhio/reports-system/releases/download/v1.5.5/docs-panel.crx",
   "zipUrl": "https://github.com/Uzserhio/reports-system/releases/download/installer/docs-panel.zip",
-  "notes": "v1.5.4 — понятное сообщение вместо «Could not establish connection»: если страница была открыта до обновления панели, появляется подсказка «обновите страницу (F5)» с кнопкой перезагрузки."
+  "notes": "v1.5.5 — фикс проверки обновлений: запасной источник version.json (jsDelivr), понятные ошибки («нет связи с сервером обновлений» вместо молчания), подсказка F5, если страница настроек открыта до обновления панели."
 }
