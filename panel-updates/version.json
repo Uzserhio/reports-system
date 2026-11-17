@@ -1,6 +1,6 @@
 {
-  "version": "1.5.5",
-  "crx": "https://github.com/Uzserhio/reports-system/releases/download/v1.5.5/docs-panel.crx",
+  "version": "1.5.6",
+  "crx": "https://github.com/Uzserhio/reports-system/releases/download/v1.5.6/docs-panel.crx",
   "zipUrl": "https://github.com/Uzserhio/reports-system/releases/download/installer/docs-panel.zip",
-  "notes": "v1.5.5 — фикс проверки обновлений: запасной источник version.json (jsDelivr), понятные ошибки («нет связи с сервером обновлений» вместо молчания), подсказка F5, если страница настроек открыта до обновления панели."
+  "notes": "v1.5.6 — мастер переоформления на всю высоту панели (список шагов больше, ничего не обрезается), карточка билета выше."
 }
